@@ -76,6 +76,7 @@ function getUsers(){
                 alert(error);
             })
         }else {
+            setPassword("");
             alert('Wrong Password');
         }
         
@@ -130,10 +131,14 @@ function getUsers(){
             showModal={showModal} 
             handleClose={() => setShowModal(false)} 
             handleAction={deleteUser}
-            password={password}
-            setPassword={setPassword}
+            field={password}
+            setField={setPassword}
             title={'Delete User'}
             message={'Are you sure you want to delete the user'}
+            typeForm={"password"}
+            placeholderForm={"Password"}
+            typeButton={"danger"}
+            textButton={"Delete"}
         />
         </>
     );
