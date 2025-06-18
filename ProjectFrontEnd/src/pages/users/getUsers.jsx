@@ -65,7 +65,7 @@ function getUsers(){
             }else{
                 return response.json().then((errorData) => {
                     console.log(errorData.messageError);
-                    throw new Error(errorData.messageError); // Extrae el mensaje de error y lo lanza
+                    throw new Error(errorData.messageError);
                 });
             }
         }).then((data) =>{

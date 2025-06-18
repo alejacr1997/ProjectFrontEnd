@@ -4,8 +4,8 @@ import {React, useEffect, useState} from 'react';
 import UserContext from "../../contexts/userContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ModalAction from "../../items/modal";
-import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import UpdateTask from "./updateTask";
 
 function getTask(){
 
@@ -14,6 +14,11 @@ function getTask(){
     const [tasks, setTasks] = useState([]);
     const [refreshTasks, setRefreshTasks] = useState(false);
     const [showTable, setShowTable] = useState(false);
+    const [showDelete, setShowDelete] = useState(false);
+    const [selectedTask, setSelectedTask] = useState(null);
+    const [inputUser, setInputUser] = useState("");
+    const [showUpdateForm, setShowUpdateForm] = useState(false);
+    
 
     const navigate = useNavigate();
 
@@ -65,11 +70,47 @@ function getTask(){
     }
 
     const confirmDelete=(task) => {
+        setSelectedTask(task);
+        setShowDelete(true);
+    }
 
+    const deleteTask= () => {
+        if (selectedTask.username === inputUser) {
+            fetch ('http://localhost:7080/tasks/deleteTaskId',  {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id:selectedTask.id}),
+            }
+        ).then((response) => {
+            setTasks(tasks.filter((task) => task.id !== selectedTask.id))
+            setShowDelete(false);
+            setInputUser("");
+            if(response.ok){
+                return response.text();
+            }else{
+                return response.json().then((errorData) => {
+                    console.log(errorData.messageError);
+                    throw new Error(errorData.messageError); 
+                });
+            }
+            }).then((data) =>{
+                alert(data);
+                console.log(data);
+            }).catch((error) =>{
+                console.log(error);
+                alert(error);
+            })
+        }else {
+            setInputUser("");
+            alert("Username invalid please try again")
+        }
     }
 
     const handleUpdate=(task) => {
-
+        setSelectedTask(task);
+        setShowUpdateForm(true);
     }
 
     const handleClose= ()=>{
@@ -93,6 +134,21 @@ function getTask(){
             textButton={"Get Tasks"}
         />
 
+        <ModalAction 
+            showModal={showDelete} 
+            handleClose={() => setShowDelete(false)} 
+            handleAction={deleteTask}
+            field={inputUser}
+            setField={setInputUser}
+            title={'Delete Task'}
+            message={'To confirm that you want to delete the task write the username'}
+            typeForm={"text"}
+            placeholderForm={"Username"}
+            typeButton={"danger"}
+            textButton={"Delete"}
+        />
+    
+        {!showUpdateForm ? (
         <Table striped bordered hover hidden={!showTable}>
                     <thead>
                         <tr>
@@ -128,6 +184,9 @@ function getTask(){
                         )}
                     </tbody>
                 </Table>
+        ):(
+            <UpdateTask updateTask={selectedTask} setShowUpdateForm={setShowUpdateForm} setRefreshTasks={setRefreshTasks}></UpdateTask>
+        )}
         </>
     );
 }

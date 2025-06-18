@@ -26,8 +26,6 @@ function NavigationBar() {
                             <NavDropdown title="Tasks">
                                 <Nav.Link href="#/createTask" data-tooltip-id="my-tooltip"data-tooltip-content="Page to Create Task" data-tooltip-place="right">Create Task</Nav.Link>
                                 <Nav.Link href="#/getTask" data-tooltip-id="my-tooltip"data-tooltip-content="Page to Get Task" data-tooltip-place="right">Get Task</Nav.Link>
-                                <Nav.Link href="#/updateTask" data-tooltip-id="my-tooltip"data-tooltip-content="Page to Update Task" data-tooltip-place="right">Update Task</Nav.Link>
-                                <Nav.Link href="#/deleteTask" data-tooltip-id="my-tooltip"data-tooltip-content="Page to Delete Task" data-tooltip-place="right">Delete Task</Nav.Link>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

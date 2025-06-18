@@ -11,7 +11,6 @@ import UpdateUser from './pages/users/updateUser.jsx'
 import CreateTask from './pages/tasks/createTask.jsx'
 import UpdateTask from './pages/tasks/updateTask.jsx'
 import GetTask from './pages/tasks/getTask.jsx'
-import DeleteTask from './pages/tasks/deleteTask.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
     path: '/createUser',
     element: <CreateUser/>,
   },
-  {
-     path: '/updateUser',
-    element: <UpdateUser/>,
-  },
    {
      path: '/getUsers',
     element: <GetUsers/>,
@@ -33,14 +28,6 @@ const router = createBrowserRouter([
    {
      path: '/createTask',
     element: <CreateTask/>,
-  },
-   {
-     path: '/updateTask',
-    element: <UpdateTask/>,
-  },
-   {
-     path: '/deleteTask',
-    element: <DeleteTask/>,
   },
    {
      path: '/getTask',
@@ -56,11 +43,8 @@ createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path='/' element={<App/>}/>
           <Route path='/createUser' element={<CreateUser/>}/>
-          <Route path='/updateUser' element={<UpdateUser/>}/>
           <Route path='/getUsers' element={<GetUsers/>}/>
           <Route path='/createTask' element={<CreateTask/>}/>
-          <Route path='/updateTask' element={<UpdateTask/>}/>
-          <Route path='/deleteTask' element={<DeleteTask/>}/>
           <Route path='/getTask' element={<GetTask/>}/>
         </Routes>
       </div>
