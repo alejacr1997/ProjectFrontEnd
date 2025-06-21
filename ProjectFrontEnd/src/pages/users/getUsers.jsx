@@ -1,7 +1,6 @@
 import { Formik, useFormik, Form, Field} from "formik";
 import { Card, Button, Table } from "react-bootstrap";
 import {React, useEffect, useState} from 'react';
-import UserContext from "../../contexts/userContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ModalAction from "../../items/modal";
 import UpdateUser from "./updateUser";
@@ -117,7 +116,7 @@ function getUsers(){
                  ))
             ) : (
                 <tr>
-                    <td colSpan="4" style={{ textAlign: "center" }}>No hay usuarios disponibles</td>
+                    <td colSpan="8" style={{ textAlign: "center" }}>No hay usuarios disponibles</td>
                 </tr>
                 )}
             </tbody>

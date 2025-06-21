@@ -3,33 +3,24 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+function App() {
+ return (
+    <div className="welcome-container">
+      <h1 className="welcome-title">Welcome to the Second Activity Exercise</h1>
+      <div className="row justify-content-center">
+        <div className="icon-card fade-in">
+          <img
+            src="src\assets\image1.png"
+            alt="Icono de usuario"
+            className="imagen1 img-fluid animated-icon"
+          />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <h3 className='welcome-subtitle'>Users and Tasks Functionality</h3>
+    </div>
+  );
+
 }
 
 export default App

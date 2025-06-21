@@ -2,7 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { HashRouter, Router, RouterProvider, Route, Routes, Navigate, createBrowserRouter } from 'react-router-dom'
-import UserContext from './contexts/userContext.jsx'
 import App from './App.jsx'
 import NavigationBar from './items/navbar.jsx'
 import CreateUser from './pages/users/createUser.jsx'
@@ -11,6 +10,8 @@ import UpdateUser from './pages/users/updateUser.jsx'
 import CreateTask from './pages/tasks/createTask.jsx'
 import UpdateTask from './pages/tasks/updateTask.jsx'
 import GetTask from './pages/tasks/getTask.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import StatusBanner from './online/StatusBanner'
 
 const router = createBrowserRouter([
   {
@@ -37,8 +38,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <HashRouter>
-    <UserContext.Provider value={{users:{}}}>
       <NavigationBar/>
+      <StatusBanner/>
       <div className='container' style={{paddingTop:'50px'}}>
         <Routes>
           <Route path='/' element={<App/>}/>
@@ -48,6 +49,5 @@ createRoot(document.getElementById('root')).render(
           <Route path='/getTask' element={<GetTask/>}/>
         </Routes>
       </div>
-    </UserContext.Provider>
   </HashRouter>,
 )

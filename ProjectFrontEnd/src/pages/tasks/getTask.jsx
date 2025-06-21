@@ -1,7 +1,6 @@
 import { Formik, useFormik, Form, Field} from "formik";
 import { Card, Button, Table } from "react-bootstrap";
 import {React, useEffect, useState} from 'react';
-import UserContext from "../../contexts/userContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ModalAction from "../../items/modal";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +61,7 @@ function getTask(){
         if(dateString == null){
             return null;
         }
-        return new Date(dateString).toLocaleDateString("es-ES", {
+        return new Date(dateString).toLocaleDateString("en-EN", {
             year:"numeric",
             month:"long",
             day:"numeric"
@@ -168,7 +167,7 @@ function getTask(){
                                 <td>{task.username}</td>
                                 <td>{task.title}</td>
                                 <td>{task.description}</td>
-                                <td>{task.status ? "Completada" : "Pendiente"}</td>
+                                <td>{task.status ? "Completed" : "In Progress"}</td>
                                 <td>{formatDate(task.dueDate)}</td>
                                 <td>{formatDate(task.creationDate)}</td>
                                 <td>
@@ -179,7 +178,7 @@ function getTask(){
                          ))
                     ) : (
                         <tr>
-                            <td colSpan="6" style={{ textAlign: "center" }}>No hay tareas para el usuario {username}</td>
+                            <td colSpan="7" style={{ textAlign: "center" }}>No task for the user: {username}</td>
                         </tr>
                         )}
                     </tbody>

@@ -1,7 +1,6 @@
 import { Formik, useFormik, Form, Field} from "formik";
 import { Card, Button } from "react-bootstrap";
 import {React, useEffect, useState} from 'react';
-import UserContext from "../../contexts/userContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CardP from "../../items/card";
 
@@ -48,6 +47,7 @@ function createUser(){
                 })
         },validate: values =>{
             let errors = {};
+            console.log(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/i.test(values.email));
             if (!values.firstname) {
                 errors.firstname = 'Field required';
             } else if (!/^[a-zA-Z]+$/i.test(values.firstname)) {
@@ -63,7 +63,7 @@ function createUser(){
             }
             if (!values.email) {
                 errors.email = 'Field required';
-            } else if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/i.test(values.email)) {
+            } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(values.email)) {
                 errors.email = 'Write a valid email';
             }
             if (!values.username) {

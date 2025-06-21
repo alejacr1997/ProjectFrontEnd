@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Tooltip } from "react-tooltip";
 import { Nav, Navbar, NavItem, Container, NavDropdown } from "react-bootstrap";
-import UserContext from "../contexts/userContext";
 
 function NavigationBar() {
     return(
