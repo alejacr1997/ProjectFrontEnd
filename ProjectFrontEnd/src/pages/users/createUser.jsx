@@ -4,7 +4,7 @@ import {React, useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CardP from "../../items/card";
 
-function createUser(){
+function CreateUser(){
 
     const formik = useFormik({
         initialValues: {
@@ -131,4 +131,4 @@ function createUser(){
         </>
     ); 
 }
-export default createUser;
+export default CreateUser;

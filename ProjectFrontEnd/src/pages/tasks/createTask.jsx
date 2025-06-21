@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CardP from "../../items/card";
 import { FaCalendarAlt } from "react-icons/fa";
 
-function createTask(){
+function CreateTask(){
 
     const formik = useFormik({
         initialValues: {
@@ -95,4 +95,4 @@ function createTask(){
     ); 
 
 }
-export default createTask;
+export default CreateTask;

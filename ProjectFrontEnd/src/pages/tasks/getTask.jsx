@@ -6,7 +6,7 @@ import ModalAction from "../../items/modal";
 import { useNavigate } from "react-router-dom";
 import UpdateTask from "./updateTask";
 
-function getTask(){
+function GetTask(){
 
     const [showModal, setShowModal] = useState(true);
     const [username, setUsername] = useState("");
@@ -189,4 +189,4 @@ function getTask(){
         </>
     );
 }
-export default getTask;
+export default GetTask;

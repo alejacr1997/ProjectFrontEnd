@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ModalAction from "../../items/modal";
 import UpdateUser from "./updateUser";
 
-function getUsers(){
+function GetUsers(){
     const [users, setUsers] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -143,4 +143,4 @@ function getUsers(){
     );
 
 }
-export default getUsers;
+export default GetUsers;
